@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自己写分类首页</title>
+
+    <!-- 1. 为了实现屏幕适配在最上面先引入rem动态改变根元素字体大小的js -->
+    <script src="./js/rem.js"></script>
+
+    <!-- 2. 引入MUI的CSS文件 -->
+
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 3. 引入字体图标的CSS文件 -->
+
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <!-- 4. 引入自己分类的less文件 注意rel="stylesheet/less" -->
+
+    <link rel="stylesheet/less" href="./less/category.less">
+    <!-- 5. 引入less的编译器文件 -->
+
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="#" onclick="javascript:history.back(-1);" class="fa fa-arrow-left"></a>
+        <form action="">
+            <input type="search" placeholder="请输入要搜素的商品">
+        </form>
+        <a href="search.html" class="fa fa-search"></a>
+    </header>
+
+    <!-- 中间的主体区域 -->
+    <main id="main">
+        <div class="category-left">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!--这里放置真实显示的DOM内容-->
+                    <ul>
+
+                        <!-- <li class="active"><a href="#" data-id="1">运动馆</a></li> -->
+
+                        <!-- <li class=""><a href="#" data-id="2">女士馆</a></li> -->
+
+                        <!-- <li class=""><a href="#" data-id="3">男士馆</a></li> -->
+
+                        <!-- <li class=""><a href="#" data-id="4">帆布馆</a></li> -->
+
+                        <!-- <li class=""><a href="#" data-id="5">户外管</a></li> -->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-right">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!--这里放置真实显示的DOM内容-->
+                    <div class="mui-row">
+                        <!-- 判断当前的rows数组的长度如大于0 表示有数据就要遍历 否则就不遍历显示没有数据 -->
+
+                        <div class="mui-col-xs-4">
+                            <a href="#">
+                                <img src="/mobile/images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </div>
+
+                        <div class="mui-col-xs-4">
+                            <a href="#">
+                                <img src="/mobile/images/brand2.png" alt="">
+                                <p>阿迪</p>
+                            </a>
+                        </div>
+
+                        <div class="mui-col-xs-4">
+                            <a href="#">
+                                <img src="/mobile/images/brand3.png" alt="">
+                                <p>新百伦</p>
+                            </a>
+                        </div>
+
+                        <div class="mui-col-xs-4">
+                            <a href="#">
+                                <img src="/mobile/images/brand4.png" alt="">
+                                <p>哥伦比亚</p>
+                            </a>
+                        </div>
+
+                        <div class="mui-col-xs-4">
+                            <a href="#">
+                                <img src="/mobile/images/brand5.png" alt="">
+                                <p>匡威</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- mask 遮罩层 -->
+
+    <div class="mask">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+
+
+
+    <!-- 底部区域   -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="./index.html" class="active">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./category.html">
+                    <i class="fa fa-bars"></i>
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./user.html">
+                    <i class="fa fa-user"></i>
+                    <span>会员中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/html" id="firstCategoryTpl">
+
+        {{each rows value index}}
+        <li class="{{index == 0?'active':''}}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
+
+        {{/each}}
+        
+    </script>
+
+    <script type="text/html" id="secondCategoryTp1">
+        {{ if rows.length >0 }}
+            {{each rows value index}}   
+                <div class="mui-col-xs-4">
+                    <a href="#">
+                        <img src="{{value.brandLogo}}" alt="">
+                        <p>{{value.brandName}}</p>
+                    </a>
+                </div>    
+            {{/each}}
+        {{else}}    
+             <h3>该馆没有其他品牌</h3>   
+        {{/if}}
+    </script>
+
+
+
+    <!-- 1. 引入zepto的JS -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+
+    <!-- 2. 引入MUI的JS文件 -->
+    <script src="./lib/mui/js/mui.js"></script>
+
+    <!-- 3. 引入模板引擎的JS文件 注意 引入template-web.js-->
+    <script src="./lib/artTemplate/template-web.js"></script>
+
+    <!-- 4. 引入自己主页的js文件 -->
+    <script src="./js/category.js"></script>
+
+</body>
+
+</html>

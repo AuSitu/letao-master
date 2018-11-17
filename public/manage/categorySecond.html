@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>后台的管理添加品牌</title>
+    <!-- 1. 引入bootstrap的CSS文件 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标的CSS文件 -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入主页的less文件 注意 rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 4. 引入less的编译器less.js -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 后台的主页容器 -->
+    <main id="main">
+        <div class="left">
+            <div class="title">
+                <img src="images/3.png" alt="">
+                <h4>刘旭涛</h4>
+            </div>
+            <div class="content">
+                <ul class="list-group">
+                    <li class="list-group-item active"><a href="index.html">用户管理</a></li>
+                    <li class="list-group-item">
+                        <!-- 使用折叠菜单插件 bootstrap插件 collapse -->
+                        <!-- 点击按钮需要添加data-toggle="collapse" href="#categoryManage" 属性 -->
+                        <!-- data-toggle="collapse"控制是否开插件功能 -->
+                        <!-- href="#categoryManage" 控制他要切换哪个容器 -->
+                        <a data-toggle="collapse" href="#categoryManage">分类管理</a>
+                        <ul class="collapse in" id="categoryManage">
+                            <li class="list-group-item active">
+                                <a href="categoryFirst.html">一级分类</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="categorySecond.html">二级分类</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><a href="#">商品管理</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title clearfix">
+                <a href="#" class="pull-left">
+                    <i class="fa fa-navicon"></i>
+                </a>
+                <a href="#" class="pull-right btn-exit">
+                    <i class="fa fa-sign-out"></i> 退出
+                </a>
+            </div>
+            <div class="content">
+                <div class="table-box brand-manage">
+                    <!-- 添加分类 -->
+                    <div class="add-brand" style="margin-bottom:20px;">
+                        <!-- 点击按钮 -->
+                        <!-- data-toggle="modal" 控制开关 -->
+                        <!-- data-target="#myModal" 控制的目标 -->
+                        <button type="button" class="btn btn-primary btn-add-brand" data-toggle="modal" data-target="#cateogryModal">添加品牌</button>
+                        <!-- 模态框框框 -->
+                        <div class="modal fade" id="cateogryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">添加品牌</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div>
+                                            请选择分类： <select name="" id="selectCategory" class="form-control">
+                                                
+                                                
+                                                <option value="雷霆">雷霆</option>
+                                                <option value="谢明龙">谢明龙</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" class="form-control brand-name" placeholder="请输入品牌名称">
+                                        <div>
+                                            <input type="file" class="form-control select-file">
+                                            <img src="images/1.png" alt="" class="file-img">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary btn-save" data-dismiss="modal">保存</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 带边框 带条纹 和带悬停的表格 -->
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>品牌编号</th>
+                                <th>品牌名称</th>
+                                <th>品牌logo</th>
+                                <th>所属分类</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox">
+                                </th>
+                                <td>5</td>
+                                <td>阿萨德2</td>
+                                <td><img src="/mobile/images/brand5.png" alt=""></td>
+                                <td>女士馆</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 分页的盒子 -->
+                    <div class="page-box">
+                        <!-- 分页的ul -->
+                        <ul id="page"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 创建品牌的模板 -->
+    <script id="brandTmp" type="text/html">
+        {{each rows value i}}
+             <tr>
+                <th scope="row">
+                    <input type="checkbox">
+                </th>
+                <td>{{value.id}}</td>
+                <td>{{value.brandName}}</td>
+                <td><img src="{{value.brandLogo}}" alt=""></td>
+                <td>{{value.categoryName}}</td>
+            </tr>
+        {{/each}}
+    </script>
+    <!-- 创建一个分类名称的模板 -->
+    <script id="categoryNameTmp" type="text/html">
+        {{each rows value i}}
+            <option value="{{value.id}}">{{value.categoryName}}</option>
+        {{/each}}
+    </script>
+    <!-- 5. 引入jquery 因为bootstrap依赖jquery-->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 6. 引入bootstrap的js文件 -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 7. 引入模板引擎的js文件  注意引入template-web.js 4.0模板引擎-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8.引入 bootstrap的分页插件 -->
+    <script src="lib/bootstrap/js/bootstrap-paginator.js"></script>
+    <!-- 9. 引入主页的js -->
+    <script src="js/categorySecond.js"></script>
+</body>
+
+</html>

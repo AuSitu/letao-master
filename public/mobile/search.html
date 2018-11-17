@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>自写版乐淘移动端</title>
+    <!-- 1. 引入mui的CSS文件 提供mui样式 -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS文件  提供字体图标-->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入主页的less文件 注意 rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/search.less">
+    <!-- 4. 引入less的编译器文件 编译less -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 引入rem.js 要在前面引入因为他会影响到页面渲染提前引入 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <h4>搜索中心</h4>
+    </header>
+    <!-- 中间主体区域 -->
+    <main id="main">
+        <!-- 搜索表单 -->
+        <div class="search-form">
+            <input type="search" class="input-search" placeholder="请输入要搜索商品">
+            <button type="button" class="btn-search mui-btn mui-btn-primary">搜索</button>
+        </div>
+        <!-- 搜索历史记录 -->
+        <div class="search-history">
+             <!-- 搜索历史的标题 -->
+            <div class="title mui-clearfix">
+                <span class="mui-pull-left">搜索历史</span>
+                <a class="mui-pull-right btn-clear"><i class="fa fa-trash"></i>清空记录</a>
+            </div>
+            <!-- 搜索历史的列表内容 -->
+            <div class="content">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span>鞋</span>
+                        </a>
+                        <i href="#" class="fa fa-close mui-pull-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>鞋</span>
+                        </a>
+                        <i href="#" class="fa fa-close mui-pull-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>鞋</span>
+                        </a>
+                        <i href="#" class="fa fa-close mui-pull-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>鞋</span>
+                        </a>
+                        <i href="#" class="fa fa-close mui-pull-right"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3"><a href="index.html" class="active"><i class="fa fa-home"></i><span>首页</span></a></div>
+            <div class="mui-col-xs-3"><a href="category.html"><i class="fa fa-bars"></i><span>分类</span></a></div>
+            <div class="mui-col-xs-3"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a></div>
+            <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>会员中心</span></a></div>
+        </div>
+    </footer>
+    <!-- 创建一个搜索历史列表的模板 -->
+    <script id="historyTmp" type="text/html">
+        {{if rows.length > 0}}
+            {{each rows value i}}
+                <li>
+                    <a href="productlist.html?search={{value.search}}">
+                        <span>{{value.search}}</span>
+                    </a>
+                    <!-- 把id绑定在i上面 i是删除x -->
+                    <i href="#" class="fa fa-close mui-pull-right btn-delete" data-id="{{value.id}}"></i>
+                </li>
+            {{/each}}
+        {{else}}
+            <li><p>没有搜索记录</p></li>
+        {{/if}}
+    </script>
+    <!-- 5. 引入mui的js文件 提供mui js插件-->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 6. 引入zepto的js文件 操作元素发送请求  zepto就相当于jquery-->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 7. 引入模板引擎的js文件 渲染模板的template 3.0的模板因为  template-web是4.0最新模板引擎-->
+    <!-- <script src="lib/artTemplate/template.js"></script> -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入主页的js文件 -->
+    <script src="js/search.js"></script>
+</body>
+
+</html>

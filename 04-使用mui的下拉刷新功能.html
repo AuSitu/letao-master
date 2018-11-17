@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/m/lib/mui/css/mui.css">
+    <style>
+    html {
+        font-size: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 区域滚动的父容器 -->
+    <div class="mui-scroll-wrapper" id="pullrefresh">
+        <!-- 区域滚动子容器 -->
+        <div class="mui-scroll">
+            <ul>
+                <li>真实数据列表</li>
+            </ul>
+        </div>
+    </div>
+    <script src="public/m/lib/mui/js/mui.js"></script>
+    <script>
+    mui.init({
+        pullRefresh: {
+            //传入区域滚动(下拉刷新的父容器) 的选择器
+            container: '#pullrefresh', //.mui-scroll-wrapper 也可以
+            down: {
+                //初始化下拉刷新 回调函数在你执行下拉操作的时候触发                
+                callback: function() {
+                    // 设置一个定时器延迟1秒结束下拉刷新
+                    setTimeout(function() {
+                        //必须传入下拉刷新的回调函数 写真实数据请求渲染页面
+                        // $.ajax({
+                            // url: 'url',
+                            // success: function(data) {
+                                //结束下拉刷新
+                                mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+                            // }
+                        // })
+
+                    }, 1000);
+                }
+            },
+            up: {
+                //初始化上拉 回调函数在你执行上拉操作的时候触发               
+                contentrefresh: '正在加载...',
+                callback: function() {
+
+                    // 设置一个定时器延迟1秒结束下拉刷新
+                    setTimeout(function() {
+                        //必须传入上拉加载的回调函数 写真实数据请求渲染页面  
+                        // $.ajax({
+                            // url: 'url',
+                            // success: function(data) {
+                                //结束上拉加载更多
+                                mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+                                //如果传入true就表示结束并且提示没有更多数据了
+                                mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+                            // }
+                        // })
+                    }, 1000);
+                }
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

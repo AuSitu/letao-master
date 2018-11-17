@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/m/lib/mui/css/mui.css">
+    <style>
+    html {
+        font-size: 100px;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    </style>
+</head>
+
+<body>
+    <ul id="OA_task_2" class="mui-table-view">
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">Item 1</a>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <a href="#" class="mui-slider-handle mui-table mui-navigate-right">
+                <div class="mui-table-cell">
+                    左滑自动触发删除
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-left mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle">
+                右滑自动触发删除
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-left mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <div class="mui-slider-handle">
+                左右滑动均可自动触发删除
+            </div>
+        </li>
+    </ul>
+   
+    <script src="public/m/lib/mui/js/mui.js"></script>
+    <script>
+    var $ = mui;
+    var btnArray = ['确认', '取消'];
+    //第二个demo，向左拖拽后显示操作图标，释放后自动触发的业务逻辑
+    $('.mui-table-view').on('tap', '.mui-btn-red', function(event) {
+        var elem = this;
+        mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+        	   //点击了是 就删除 
+            if (e.index == 0) {
+                elem.parentNode.removeChild(elem);
+                // 获取当前滑动li的购物车id
+                // 调用购物车删除的API根据id删除商品
+                // 删除成功后要重新渲染页面
+            } else {
+            	console.log(111);
+            	//点击了否就滑动回去
+                setTimeout(function() {
+                	//滑回去需要传入一个参数 这个参数是 当前滑动的li元素 dom原生对象
+                    $.swipeoutClose(elem.parentNode.parentNode);
+                }, 0);
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

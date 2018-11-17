@@ -1,0 +1,38 @@
+@import 'base.less';
+ #main {
+     .search-history {
+         padding: 0 0.1rem;
+         .title {
+             display: flex;
+             justify-content: space-between;
+             line-height: 0.3rem;
+             font-size: 0.14rem;
+        }
+         .content {
+             border: 1px solid @border-color;
+             border-radius: 0.1rem;
+             ul {
+                 li {
+                     display: flex;
+                     justify-content: space-between;
+                     line-height: 0.4rem;
+                     padding: 0 0.1rem;
+                     a {
+                         font-size: 0.14rem;
+                         &:first-of-type {
+                             flex: 1;
+                        }
+                         &:last-of-type {
+                             width: 0.3rem;
+                             text-align: center;
+                        }
+                    }
+                     +li {
+                         border-top: 0.01rem solid @border-color;
+                    }
+                }
+            }
+        }
+    }
+}
+ 

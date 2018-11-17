@@ -1,0 +1,243 @@
+@a-color :#666;
+ @border-color: #ccc;
+ @main-color: #006699;
+ html {
+     font-size: 100px;
+}
+ * {
+     margin: 0rem;
+     padding: 0rem;
+}
+ a {
+     color: @a-color;
+}
+ body {
+     font-size: 0.16rem;
+     padding: 0.45rem 0;
+     background-color: #fff;
+}
+ img {
+     vertical-align: middle;
+}
+ html, body {
+     height: 100%;
+}
+ #main {
+     height: 100%;
+     position: relative;
+}
+ #header {
+     background-color: @main-color;
+     height: 0.45rem;
+     position: fixed;
+     width: 100%;
+     color: #fff;
+     top: 0rem;
+     left: 0rem;
+     z-index: 999;
+     padding: 0 0.45rem;
+     .fa-arrow-left {
+         position: absolute;
+         left: 0rem;
+         top: 0rem;
+         width: 0.45rem;
+         height: 0.45rem;
+         color: #fff;
+         line-height: 0.45rem;
+         text-align: center;
+    }
+     form {
+         padding-top: 0.05rem;
+         input {
+             margin: 0rem;
+             text-align: left;
+             width: 100%;
+             font-size: 0.14rem;
+             color: #000;
+             background-color: #fff;
+        }
+    }
+     h4 {
+         text-align: center;
+         line-height: 0.45rem;
+         font-weight: normal;
+         margin: 0;
+    }
+     .fa-search {
+         position: absolute;
+         right: 0rem;
+         top: 0rem;
+         width: 0.45rem;
+         height: 0.45rem;
+         color: #fff;
+         line-height: 0.45rem;
+         text-align: center;
+    }
+     .fa-home {
+         position: absolute;
+         right: 0rem;
+         top: 0rem;
+         width: 0.45rem;
+         height: 0.45rem;
+         color: #fff;
+         line-height: 0.45rem;
+         text-align: center;
+    }
+     .fa-refresh {
+         position: absolute;
+         right: 0rem;
+         top: 0rem;
+         width: 0.45rem;
+         height: 0.45rem;
+         color: #fff;
+         line-height: 0.45rem;
+         text-align: center;
+    }
+}
+ #footer {
+     height: 0.45rem;
+     background-color: @main-color;
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     z-index: 999;
+     a {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         padding: 0.09rem 0 0.05rem;
+         color: #fff;
+         line-height: 0.15rem;
+         font-size: 0.12rem;
+         &.active {
+             color: orange;
+        }
+    }
+}
+/* 搜索表单的公共样式 */
+ .search-form {
+     padding: 0.1rem;
+     display: flex;
+     .input-search {
+         flex: 1;
+         background-color: #fff;
+         border: 1px solid @main-color;
+         margin: 0rem;
+         border-radius: 0.1rem 0 0 0.1rem;
+         text-align: left;
+         font-size: 0.14rem;
+         height: 0.35rem;
+    }
+     .btn-search {
+         width: 0.6rem;
+         background-color: @main-color;
+         border-radius: 0rem 0.1rem 0.1rem 0rem;
+         border-color: @main-color;
+         height: 0.35rem;
+    }
+}
+/* 商品的公共样式 */
+ .product {
+     box-shadow: 0rem 0rem 0.01rem @border-color;
+     text-align: center;
+     margin-top: 0.1rem;
+     padding-bottom: 0.1rem;
+     .product-img {
+         display: block;
+         img {
+             width: 100%;
+        }
+    }
+     .product-name {
+         overflow: hidden;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+    }
+     .product-price {
+         font-size: 0.12rem;
+         span {
+             color: red;
+        }
+         del {
+             color: #ccc;
+        }
+    }
+     .mui-btn-primary {
+         background-color: @main-color;
+    }
+}
+/* 遮罩层把整个页面的中间部分盖住 使用固定定位 宽高100% 除了头部和底部不盖住 把z-index设置得比头和尾低一点点 */
+ .mask {
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     background-color: #ccc;
+     left: 0rem;
+     top: 0rem;
+     z-index: 998;
+     display: block;
+     img {
+         width: 2rem;
+         height: 2rem;
+         border-radius:50%;
+         position: fixed;
+         left: 50%;
+         top: 50%;
+         transform: translate(-50%, -50%);
+         z-index: 999;
+    }
+}
+ .spinner {
+     margin: 3rem auto;
+     width: 0.5rem;
+     height: 0.6rem;
+     text-align: center;
+     font-size: 0.1rem;
+}
+ .spinner > div {
+     background-color: #000;
+     height: 100%;
+     width: 0.06rem;
+     display: inline-block;
+     -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+     animation: stretchdelay 1.2s infinite ease-in-out;
+}
+ .spinner .rect2 {
+     -webkit-animation-delay: -1.1s;
+     animation-delay: -1.1s;
+}
+ .spinner .rect3 {
+     -webkit-animation-delay: -1.0s;
+     animation-delay: -1.0s;
+}
+ .spinner .rect4 {
+     -webkit-animation-delay: -0.9s;
+     animation-delay: -0.9s;
+}
+ .spinner .rect5 {
+     -webkit-animation-delay: -0.8s;
+     animation-delay: -0.8s;
+}
+ @-webkit-keyframes stretchdelay {
+     0%, 40%, 100% {
+         -webkit-transform: scaleY(0.4) 
+    }
+     20% {
+         -webkit-transform: scaleY(1.0) 
+    }
+}
+ @keyframes stretchdelay {
+     0%, 40%, 100% {
+         transform: scaleY(0.4);
+         -webkit-transform: scaleY(0.4);
+    }
+     20% {
+         transform: scaleY(1.0);
+         -webkit-transform: scaleY(1.0);
+    }
+}
+ 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自己写搜索首页</title>
+
+    <!-- 1. 为了实现屏幕适配在最上面先引入rem动态改变根元素字体大小的js -->
+    <script src="./js/rem.js"></script>
+
+    <!-- 2. 引入MUI的CSS文件 -->
+
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 3. 引入字体图标的CSS文件 -->
+
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <!-- 4. 引入自己搜素页面的less文件 注意rel="stylesheet/less" -->
+
+    <link rel="stylesheet/less" href="./less/search.less">
+    <!-- 5. 引入less的编译器文件 -->
+
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="#" onclick="javascript:history.back(-1);" class="fa fa-arrow-left"></a>
+        <h4>搜索中心</h4>
+    </header>
+
+    <!-- 中间的主体区域 -->
+    <main id="main">
+        <!-- 搜索表单 -->
+        <form action="#" class="search-form">
+            <input type="search" name="" class="input-search" placeholder="请输入要搜索的商品">
+            <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
+        </form>
+        <!-- 搜索历史 -->
+        <div class="search-history">
+            <div class="title">
+                <span>搜索历史</span>
+                <a href="#" class="btn-clear">
+                    <i class="fa fa-trash"></i>
+                    清空记录
+                </a>
+            </div>
+            <div class="content">
+                <ul>
+                    <li>
+                        <a href="#">鞋</a>
+                        <a href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">鞋</a>
+                        <a href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">鞋</a>
+                        <a href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">鞋</a>
+                        <a href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部区域   -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="./index.html" class="active">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./category.html">
+                    <i class="fa fa-bars"></i>
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                    <a href="./cart.html">
+                        <i class="fa fa-shopping-cart"></i>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                    <a href="./user.html">
+                        <i class="fa fa-user"></i>
+                    <span>会员中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    
+  <!-- 搜索记录的模板 -->
+    <script type="text/html" id="historyListTmp">
+        {{if rows.length > 0}}
+            {{each rows value index}}
+                <li>
+                    <a href="productlist.html?search={{value}}">{{value}}</a>
+                    <a href="#">
+                        <i class="fa fa-close" data-index="{{index}}"></i>
+                    </a>
+                </li>
+            {{/each}}
+        {{else}}
+                <p>你暂时还没有进行搜索过</p>
+        {{/if}}    
+        
+    </script>
+
+
+
+
+    <!-- 1. 引入zepto的JS -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+
+    <!-- 2. 引入MUI的JS文件 -->
+    <script src="./lib/mui/js/mui.js"></script>
+
+    <!-- 3. 引入模板引擎的JS文件 注意 引入template-web.js-->
+    <script src="./lib/artTemplate/template-web.js"></script>
+
+    <!-- 4. 引入搜素主页的js文件 -->
+    <script src="./js/search.js"></script>
+
+</body>
+
+</html>

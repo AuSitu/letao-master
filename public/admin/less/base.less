@@ -1,0 +1,103 @@
+@main-color: #2f4050;
+html,
+body {
+    height: 100%;
+}
+
+#main {
+    display: flex;
+    height: 100%;
+    .left {
+        width: 180px;
+        background-color: @main-color;
+        .title {
+            padding: 30px 0 60px;
+            background-color: #243443;
+            .user {
+                width: 150px;
+                height: 150px;
+                border: 5px solid #ccc;
+                border-radius: 50%;
+                margin: 0px auto;
+                img {
+                    width: 140px;
+                    height: 140px;
+                    border-radius: 50%;
+                }
+                p {
+                    font-size: 20px;
+                    color: #ccc;
+                    text-align: center;
+                    padding: 10px;
+                }
+            }
+        }
+        .content {
+            margin-top: 30px;
+            ul {
+                padding: 0px;
+                li {
+                    &.active {
+                        background-color: #243443;
+                    }
+                    a {
+                        display: block;
+                        color: #ccc;
+                        padding-left: 15px;
+                        margin-top: 10px;
+                        line-height: 40px;
+                        text-decoration: none;
+                        &:hover {
+                            background-color: #243443;
+                        }
+                    }
+                    ul {
+                        padding-left: 40px;
+                    }
+                }
+            }
+        }
+    }
+    .right {
+        flex: 1;
+        .title {
+            padding: 20px;
+            .pull-left {
+                a {
+                    background-color: #5cb85c;
+                    padding: 5px 10px;
+                    display: block;
+                    color: #fff;
+                }
+            }
+            a {
+                font-size: 22px;
+            }
+        }
+        .content {
+            padding: 30px 10px;
+            background-color: #eee;
+            .table {
+                background-color: #fff;
+                tr {
+                    td,
+                    th {
+                        text-align: center;
+                        line-height: 50px;
+                    }
+                    th {
+                        height: 50px;
+                        line-height: 50px;
+                    }
+                    img {
+                        width: 160px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+    }
+    .btn-add {
+        margin-bottom: 20px;
+    }
+}

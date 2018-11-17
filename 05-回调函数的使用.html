@@ -1,0 +1,50 @@
+s<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var num = 1;
+
+    function fun(callback) {
+
+        setTimeout(function() {
+            num++;
+            // 第一次调用fun  执行里面的打印
+            // callback = function(num) {
+            //     console.log(num);
+            // }
+            // 第二次调用fun  执行里面的输入到页面
+            // callback = function(num) {
+            //     document.write(num);
+            // }
+            callback(num)
+        }, 1000);
+    }
+    fun(function(num) {
+        console.log(num);
+    });
+    fun(function(num) {
+        document.write(num);
+    });
+
+    // function sum(num1,num2) {
+    // 	// num1 = 10;
+    // 	// num2 = 20;
+    // 	// num1 = 100;
+    // 	// num2 = 200;
+    // 	return num1 + num2;
+    // }
+    // var result = sum(10,20);
+    // console.log(result);
+    // var result = sum(100,200);
+    // console.log(result);
+    //回调函数的作用就是拿到 函数里面异步代码里面的私有变量   把一些不重复的通过回调函数传递过
+    </script>
+</body>
+
+</html>

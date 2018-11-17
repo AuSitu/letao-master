@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>后台的登录页面</title>
+    <!-- 1. 引入bootstrap的CSS文件 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标的CSS文件 -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入后台的less文件 注意 rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/login.less">
+    <!-- 4. 引入less的编译器less.js -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <form class="form-horizontal">
+    		<img class="logo" src="images/monkey.png" alt="">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-3 control-label">用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary btn-login">登录</button>
+            </div>
+        </div>
+    </form>
+    <!-- 5. 引入jquery 因为bootstrap依赖jquery-->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 6. 引入bootstrap的js文件 -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 7. 引入模板引擎的js文件  注意引入template-web.js 4.0模板引擎-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入登录的js -->
+    <script src="js/login.js"></script>
+</body>
+
+</html>

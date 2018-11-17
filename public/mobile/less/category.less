@@ -1,0 +1,54 @@
+/* 引入公共样式文件 */
+@import 'base.less';
+/* 分类页面的中间主体样式 */
+#main{
+	display:flex;
+	background-color: #ccc;
+	.category-left{
+		width: 0.8rem;
+		>ul{
+			>li{
+				&.active{
+					>a{
+						background-color: #ccc;
+						color:@mainColor;
+					}
+				}
+				>a{
+					display: block;
+					width: 0.8rem;
+					height: 0.45rem;
+					line-height: 0.45rem;
+					text-align: center;
+					font-size: 0.14rem;
+					background-color: #fff;
+					border-bottom: 0.01rem solid #ccc;
+				}
+			}
+		}
+	}
+	.category-right{
+		flex:1;
+		/* 父元素要添加相对定位 */
+		position: relative;
+		.mui-scroll{
+			/* 如果设置100%和父元素一样还是无法超出 101%超出了就可以滚动 */
+			min-height: 101%;
+		}
+		.mui-row{		
+		   /* 给里面的子元素mui-row添加padding */	
+			padding: 0.1rem;			
+			a{
+				display: block;
+				background-color: #fff;
+				>img{
+					width: 100%;
+				}
+				>p{
+					font-size: 0.14rem;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

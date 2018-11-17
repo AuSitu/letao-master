@@ -1,0 +1,43 @@
+/* 引入公共样式 */
+@import 'base.less';
+
+/* 搜索页面中间主体的样式 */
+#main{
+	background-color: #fff;
+	
+	/* 搜索历史样式 */
+	.search-history{
+		padding: 0px 0.1rem;
+		.title{
+			line-height: 0.3rem;
+			font-size: 0.14rem;
+		}
+		.content{
+			> ul{
+				border:0.01rem solid #ccc;
+				border-radius:0.06rem;
+				>li{
+					line-height: 0.4rem;
+					height: 0.4rem;
+					padding-left: 0.1rem;
+					border-bottom: 0.01rem solid #ccc;
+					position: relative;
+					>a{
+						display: block;
+						font-size: 0.14rem;
+					}
+					>i{
+						position: absolute;
+						right: 0.1rem;
+						top: 0.1rem;
+						font-size: 0.14rem;
+						top: 0.12rem;
+					}
+					&:last-of-type{
+						border-bottom: 0px;
+					}
+				}
+			}
+		}
+	}
+}

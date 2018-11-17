@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自己写详情首页</title>
+
+    <!-- 1. 为了实现屏幕适配在最上面先引入rem动态改变根元素字体大小的js -->
+    <script src="./js/rem.js"></script>
+
+    <!-- 2. 引入MUI的CSS文件 -->
+
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 3. 引入字体图标的CSS文件 -->
+
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <!-- 4. 引入会员中心页面的less文件 注意rel="stylesheet/less" -->
+
+    <link rel="stylesheet/less" href="./less/user.less">
+    <!-- 5. 引入less的编译器文件 -->
+
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="#" onclick="javascript:history.back(-1);" class="fa fa-arrow-left"></a>
+        <h4>会员中心</h4>
+    </header>
+
+    <!-- 中间的主体区域 -->
+    <main id="main">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="images/user.jpg">
+                    <div class="mui-media-body">
+                        <p class="username">用户名: <span></span></p>
+                        <p class="mobile">手机号: <span></span></p>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media">
+                <a class="mui-navigate-right">账号与安全</a>
+            </li>
+            <li class="mui-table-view-cell mui-media">
+                <a class="mui-navigate-right">我的购物车</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">收货地址管理</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <button type="button" class="mui-btn btn-exit">退出登录</button>
+            </li>
+        </ul>
+    </main>
+
+
+
+    <!-- 底部区域   -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3">
+                <a href="./index.html" class="active">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./category.html">
+                    <i class="fa fa-bars"></i>
+                    <span>分类</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./cart.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>购物车</span>
+                </a>
+            </div>
+            <div class="mui-col-xs-3">
+                <a href="./user.html">
+                    <i class="fa fa-user"></i>
+                    <span>会员中心</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <!-- 1. 引入zepto的JS -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+
+    <!-- 2. 引入MUI的JS文件 -->
+    <script src="./lib/mui/js/mui.js"></script>
+
+    <!-- 3. 引入模板引擎的JS文件 注意 引入template-web.js-->
+    <script src="./lib/artTemplate/template-web.js"></script>
+
+    <!-- 4. 引入会员中心的js文件 -->
+    <script src="./js/user.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>自写版乐淘移动端</title>
+    <!-- 1. 引入mui的CSS文件 提供mui样式 -->
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <!-- 2. 引入字体图标的CSS文件  提供字体图标-->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 3. 引入主页的less文件 注意 rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/category.less">
+    <!-- 4. 引入less的编译器文件 编译less -->
+    <script src="lib/less/less.js"></script>
+    <!-- 5. 引入rem.js 要在前面引入因为他会影响到页面渲染提前引入 -->
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="javascript:history.back();" class="fa fa-arrow-left"></a>
+        <form action="#">
+            <input type="search" placeholder="请输入要搜索的商品">
+        </form>
+        <!-- 搜索图标 使用font-awesome图标库里面的图标 -->
+        <a href="search.html" class="fa fa-search"></a>
+    </header>
+    <!-- 中间主体区域 -->
+    <main id="main">
+        <div class="category-left">
+            <ul>
+                <!-- <li class="active"><a href="#">男士馆</a></li> -->
+            </ul>
+        </div>
+        <div class="category-right">
+            <!-- 区域滚动的父容器 -->
+            <div class="mui-scroll-wrapper">
+                <!-- 区域滚动的子容器 -->
+                <div class="mui-scroll">
+                    <!--这里放置真实显示的DOM内容-->
+                    <div class="mui-row">
+                        <div class="mui-col-xs-4">
+                            <a href="#">
+                                <img src="images/brand1.png" alt="">
+                                <p>耐克</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
+            <div class="mui-col-xs-3"><a href="index.html" class="active"><i class="fa fa-home"></i><span>首页</span></a></div>
+            <div class="mui-col-xs-3"><a href="category.html"><i class="fa fa-bars"></i><span>分类</span></a></div>
+            <div class="mui-col-xs-3"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a></div>
+            <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>会员中心</span></a></div>
+        </div>
+    </footer>
+    <!-- 加载中遮罩层和图片 -->
+    <div class="mask">
+        <!-- <img src="images/loading.gif" alt=""> -->
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 默认的$value 就表示循环的每个
+    $index就是循环的索引
+     {{each rows}}
+        <li class="{{$index == 0 ? 'active' : ''}}"><a href="#" data-id="{{$value.id}}">{{$value.categoryName}}</a></li>
+    {{/each}}
+    如果不想使用默认值
+    {{each rows value i }} 可以修改成value 和 i但是修改$value 和 $index就不能用 -->
+    <!-- 分类的模板 -->
+    <script id="categoryTmp" type="text/html">
+        {{each rows value i }}
+        <li class="{{i == 0 ? 'active' : ''}}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
+        {{/each}}
+    </script>
+    <!-- 品牌的模板 -->
+    <script id="brandTmp" type="text/html">
+        <!-- 判断当前的rows数组的长度如大于0 表示有数据就要遍历 否则就不遍历显示没有数据 -->
+        {{if rows.length > 0}} {{each rows value i}}
+        <div class="mui-col-xs-4">
+            <a href="#">
+                <img src="{{value.brandLogo}}" alt="">
+                <p>{{value.brandName}}</p>
+            </a>
+        </div>
+        {{/each}} {{else}}
+        <p>没有更多数据</p>
+        {{/if}}
+    </script>
+    <!-- 5. 引入mui的js文件 提供mui js插件-->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 6. 引入zepto的js文件 操作元素发送请求  zepto就相当于jquery-->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <!-- 7. 引入模板引擎的js文件 渲染模板的template 3.0的模板因为  template-web是4.0最新模板引擎-->
+    <!-- <script src="lib/artTemplate/template.js"></script> -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 8. 引入主页的js文件 -->
+    <script src="js/category.js"></script>
+</body>
+
+</html>

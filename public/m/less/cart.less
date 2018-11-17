@@ -1,0 +1,84 @@
+@import 'base.less';
+ body {
+     padding-bottom: 0.8rem;
+}
+ #main {
+     .cart-product {
+         display: flex;
+         white-space: normal;
+         .left {
+             width: 0.6rem;
+             text-align: center;
+             img {
+                 width: 100%;
+            }
+        }
+         .right {
+             flex: 1;
+             .product-name {
+                 padding: 0.02rem 0;
+                 font-size: 0.14rem;
+                 color: #666;
+                /* 限制只显示2行位置超出部分隐藏 */
+                 overflow: hidden;
+                 //超出隐藏 text-overflow: ellipsis;
+                 //超出文本设置为... display: -webkit-box;
+                 //将div1转换为盒子模型 -webkit-line-clamp: 2;
+                 //设置div1的文本为2行 -webkit-box-orient: vertical;
+                 //从顶部向底部垂直布置子元素 
+            }
+             .product-price {
+                 font-size: 0.14rem;
+                 padding: 0.03rem 0;
+                 .new-price {
+                     color: red;
+                     font-weight: 600;
+                }
+                 .old-price {
+                     color: #ccc;
+                }
+            }
+             .product-info {
+                 // padding: 0.06rem 0 ;
+                 display: flex;
+                 justify-content: space-between;
+                 font-size: 0.14rem;
+            }
+        }
+    }
+     .mui-navigate-right:after, .mui-push-right:after {
+         right: 0;
+    }
+}
+ #order {
+     position: fixed;
+     bottom: 0.45rem;
+     left: 0rem;
+     z-index: 999;
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+     background-color: #fff;
+     border-top: 0.01rem solid @border-color;
+     height: 0.34rem;
+     .order-count {
+         padding-left: 0.15rem;
+         color: red;
+         font-size: 0.14rem;
+         line-height: 0.3rem;
+         font-weight: 600;
+    }
+}
+/* 弹出框里面尺码按钮的样式 */
+ .product-size {
+     .btn-size {
+         border: 1px solid @border-color;
+         padding: 0.05rem;
+         display: inline-block;
+         margin-bottom: 0.1rem;
+         &.active {
+             background-color: lightsalmon;
+        }
+    }
+}
+ 

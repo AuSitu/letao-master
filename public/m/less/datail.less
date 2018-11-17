@@ -1,0 +1,59 @@
+@import 'base.less';
+ #main {
+     .mui-scroll {
+         min-height: 101%;
+    }
+     #slider {
+         img {
+             height: 3rem;
+        }
+    }
+     #product-info{
+         >div {
+             border-bottom: 0.01rem solid @border-color;
+             padding: 0.1rem;
+             font-size: 0.14rem;
+        }
+         .product-price {
+             .new-price {
+                 color: red;
+                 font-weight: 600;
+                 font-size: 0.18rem;
+            }
+             .old-price {
+                 color: #ccc;
+            }
+        }
+         .product-size {
+             .btn-size {
+                 border: 1px solid @border-color;
+                 padding: 0.05rem;
+                 display: inline-block;
+                 margin-bottom: 0.1rem;
+                 &.active {
+                     background-color: lightsalmon;
+                }
+            }
+        }
+    }
+}
+/* 详情页底部特殊样式 */
+ #footer {
+     background-color: #ccc;
+     .fa-shopping-cart {
+         font-size: 0.2rem;
+         color: #333;
+         text-align: center;
+         line-height: 0.35rem;
+         padding: 0.05rem;
+    }
+     .mui-row {
+         .mui-col-xs-5 {
+             padding: 0.05rem;
+             .btn-add-cart, .btn-buy {
+                 width: 100%;
+            }
+        }
+    }
+}
+ 

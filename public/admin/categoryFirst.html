@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录界面</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet/less" href="./less/index.less">
+
+    <script src="./lib/less/less.js"></script>
+
+</head>
+
+<body>
+    <main id="main">
+        <div class="left">
+            <div class="title">
+                <div class="user">
+                    <img src="./images/hots_5.jpg" alt="">
+                    <p>靓女</p>
+                </div>
+            </div>
+            <div class="content">
+                <ul>
+                    <li class="active">
+                        <a href="./index.html">用户管理</a>
+                    </li>
+                    <li>
+                        <!-- 手风琴标题 设置data-toggle开关 支持手风琴功能
+                    		href控制要 切换的内容的容器的选择器 -->
+                        <a data-toggle="collapse" href=".collapseExample">分类管理</a>
+                        <!-- 要让ul默认显示 添加一个collpase in类名 -->
+                        <ul class="collapseExample collapse in">
+                            <li>
+                                <a href="./categoryFirst.html">一级分类</a>
+                            </li>
+                            <li>
+                                <a href="./categorySecond.html">二级分类</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class=>
+                        <a href="#">商品管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title clearfix">
+                <div class="pull-left">
+                    <a href="#" title="">
+                        <i class="fa fa-navicon"></i>
+                    </a>
+                </div>
+                <div class="pull-right">
+                    <a href="#" title="">
+                        <i class="fa fa-sign-out"></i> 退出
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+
+                <button type="button" class="btn btn-primary btn-add" data-toggle="modal" data-target="#myModal">
+                        添加分类
+                </button>
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control category-name" placeholder="请输入分类的名称">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary btn-save" data-dismiss="modal">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <table class="table user-info table-striped table-hover table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>分类编号</th>
+                            <th>分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <td>itcast</td>
+                            <td>15102324243</td>
+                            <td>已启用</td>
+                            <td><button type="button" class="btn btn-danger">禁用</button></td>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <td>itcast</td>
+                            <td>15102324243</td>
+                            <td>已启用</td>
+                            <td><button type="button" class="btn btn-danger">禁用</button></td>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <td>itcast</td>
+                            <td>15102324243</td>
+                            <td>已启用</td>
+                            <td><button type="button" class="btn btn-danger">禁用</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- bootstrap的分类插件的容器 -->
+                <ul id="page"></ul>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/html" id="categoryFirstTpl">
+        {{each rows value}}
+        <tr>
+                <th><input type="checkbox"></th>
+                <td>{{value.id}}</td>
+                <td>{{value.categoryName}}</td>
+            </tr>    
+        {{/each}}
+
+    </script>
+
+    <script type="text/html" id="categoryFirstTpl"></script>
+
+
+    <script src="./lib/jquery/jquery.js"></script>
+
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+
+    <script src="./lib/artTemplate/template-web.js"></script>
+
+    <!-- 分页插件 -->
+    <script src="./lib/bootstrap/js/bootstrap-paginator.js"></script>
+
+    <script src="./js/categoryFirst.js"></script>
+</body>
+
+</html>

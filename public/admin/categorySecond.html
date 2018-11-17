@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录界面</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet/less" href="./less/index.less">
+
+    <script src="./lib/less/less.js"></script>
+
+</head>
+
+<body>
+    <main id="main">
+        <div class="left">
+            <div class="title">
+                <div class="user">
+                    <img src="./images/hots_5.jpg" alt="">
+                    <p>靓女</p>
+                </div>
+            </div>
+            <div class="content">
+                <ul>
+                    <li class="active">
+                        <a href="./index.html">用户管理</a>
+                    </li>
+                    <li>
+                        <!-- 手风琴标题 设置data-toggle开关 支持手风琴功能
+                    		href控制要 切换的内容的容器的选择器 -->
+                        <a data-toggle="collapse" href=".collapseExample">分类管理</a>
+                        <!-- 要让ul默认显示 添加一个collpase in类名 -->
+                        <ul class="collapseExample collapse in">
+                            <li>
+                                <a href="./categoryFirst.html">一级分类</a>
+                            </li>
+                            <li>
+                                <a href="./categorySecond.html">二级分类</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class=>
+                        <a href="#">商品管理</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title clearfix">
+                <div class="pull-left">
+                    <a href="#" title="">
+                        <i class="fa fa-navicon"></i>
+                    </a>
+                </div>
+                <div class="pull-right">
+                    <a href="#" title="" class="btn-exit">
+                        <i class="fa fa-sign-out"></i> 退出
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+
+                <button type="button" class="btn btn-primary btn-add-brand" data-toggle="modal" data-target="#myModal">
+                    添加品牌
+                </button>
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">添加品牌</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-3 text-center">请选择分类:</div>
+                                    <div class="col-xs-9">
+                                        <select class="select-category form-control">
+                                            <option value="女士馆">女士馆</option>
+                                            <option value="女士馆">女士馆</option>
+                                            <option value="女士馆">女士馆</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-xs-3 text-center">请输入品牌:</div>
+                                    <div class="col-xs-9">
+                                        <input type="text" class="form-control brand-name" placeholder="请输入品牌的名称">
+                                    </div>
+
+                                    <div class="col-xs-3 text-center">请选择图片:</div>
+                                    <div class="col-xs-9">
+                                        <input type="file" name="" class="form-control select-img" placeholder="请选择文件">
+                                    </div>
+
+                                    <div class="col-xs-offset-3 col-xs-9">
+                                        <img src="images/widget_5.jpg" width="250" alt="" class="img-file">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary btn-save" data-dismiss="modal">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <table class="table user-info table-striped table-hover table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>分类编号</th>
+                            <th>分类名称</th>
+                            <th>品牌logo</th>
+                            <th>所属分类</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <td>itcast</td>
+                            <td>15102324243</td>
+                            <td>已启用</td>
+                            <td><button type="button" class="btn btn-danger">禁用</button></td>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <td>itcast</td>
+                            <td>15102324243</td>
+                            <td>已启用</td>
+                            <td><button type="button" class="btn btn-danger">禁用</button></td>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <td>itcast</td>
+                            <td>15102324243</td>
+                            <td>已启用</td>
+                            <td><button type="button" class="btn btn-danger">禁用</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- bootstrap的分类插件的容器 -->
+                <ul id="page"></ul>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/html" id="categorySecondTpl">
+        {{each rows value}}
+        <tr>
+                <th><input type="checkbox"></th>
+                <td>{{value.id}}</td>
+                <td>{{value.categoryName}}</td>
+                <td><img src="{{value.brandLogo}}" alt=""></td>
+                <td>{{value.brandName}}</td>
+            </tr>    
+        {{/each}}
+
+    </script>
+
+    <script type="text/html" id="categoryFirstTpl"></script>
+
+
+    <script src="./lib/jquery/jquery.js"></script>
+
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+
+    <script src="./lib/artTemplate/template-web.js"></script>
+
+    <!-- 分页插件 -->
+    <script src="./lib/bootstrap/js/bootstrap-paginator.js"></script>
+
+    <script src="./js/categorySecond.js"></script>
+</body>
+
+</html>

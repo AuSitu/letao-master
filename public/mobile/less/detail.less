@@ -1,0 +1,61 @@
+@import 'base.less';
+/* 中间部分的样式 */
+#main{
+	background-color: #fff;
+	.product{
+		[class^='product-']{
+			padding: 0.05rem 0.1rem;
+			font-size: 0.14rem;
+			border-bottom: 0.01rem solid #ccc;
+		}
+		.product-name{
+			span{
+				font-weight: 600;
+			}
+		}		
+		.product-price{		
+			.new-price{
+				font-size: 0.2rem;
+				font-weight: 600;
+				color:red;
+			}
+			.old-price{
+				font-size: 0.14rem;
+				color:#ccc;
+			}
+		}
+		.product-size{
+			.btn-size{
+				display: inline-block;
+				width: 0.3rem;	
+				height: 0.3rem;	
+				line-height: 0.3rem;	
+				text-align: center;	
+				border:0.01rem solid #ccc;
+				margin-left: 0.05rem;
+				margin-bottom: 0.05rem;
+				&.active{
+					background-color: orange;
+				}
+			}
+		}
+	}
+}
+
+/* 详情页面的特殊底部 */
+#footer{
+	background-color: #ccc;
+	border-top: 0.01rem solid #666;
+	.mui-row{
+		>div{
+			padding:0.05rem 0.05rem;
+			a{
+				font-size: 0.2rem;
+				color:#333;
+			}
+			button{
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 私有变量默认不能给外面使用的
+		// function fun() {
+		// 	var name = '张三';
+		// 	console.log(name);
+		// }
+		// fun();
+		// console.log(name);
+		// 1. 使用全局变量
+		// var name;
+		// function fun() {
+		// 	 name = '张三';
+		// 	console.log(name);
+		// }
+		// fun();
+		// console.log(name);
+
+		// 2. 同步代码就能使用返回值
+		// function fun() {
+		// 	var name = '张三';
+		// 	return name;
+		// }
+		// var name = fun();
+		// console.log(name);
+
+		// 3. 回调函数
+		// function fun(callback) {
+		// 	var name = '张三';
+		// 	console.log(name);
+		// 	callback(name);
+		// }
+		// fun(function(name){
+		// 	console.log(name);
+		// });
+
+		// 4. 异步不能使用返回值
+			// 1. 定时器
+			// 2. ajax请求
+			// 3. 事件
+		// function fun() {
+		// 	var name;
+		// 	setTimeout(function () {
+		// 		name = '张三';
+		// 	},0)
+		// 	div.addEventListener('click', function () {
+		// 		name = '张三';
+		// 	});
+		// 	$.ajax({
+		// 		url:'url',
+		// 		success:function (data) {
+		// 			name = data;
+		// 		}
+		// 	})
+		// 	return name;
+		// }
+		// var name = fun();
+		// console.log(name);
+
+
+		function fun(callback) {
+			var name;
+			setTimeout(function () {
+				name = '张三';
+				callback(name);
+			},0)
+
+		}
+		fun(function (name) {
+			console.log(name);
+		});
+		// 1. 什么时候使用全局变量 ： 就是这个变量在后面很多地方都要用到就会使用全局变量
+		// 2. 什么时候使用return返回值 ： 这个函数是同步执行能够拿到返回值
+		// 3. 什么时候使用回调函数  ：  这个函数在异步执行的时候就要使用回调函数来获取私有变量
+	</script>
+</body>
+</html>
